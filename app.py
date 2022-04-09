@@ -77,7 +77,6 @@ def update():
         my_data.site = request.form['site']
         my_data.login = request.form['login']
         my_data.password = generate_password()
-        #my_data.password = request.form['password']
 
         db.session.commit()
         flash("Password Updated Successfully")
@@ -85,7 +84,6 @@ def update():
         return redirect(url_for('Index'))
 
 
-# This route is for deleting our employee
 @app.route('/delete/<id>/', methods=['GET', 'POST'])
 def delete(id):
     my_data = Data.query.get(id)
